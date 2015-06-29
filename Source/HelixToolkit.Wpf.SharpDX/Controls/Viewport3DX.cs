@@ -927,7 +927,7 @@ namespace HelixToolkit.Wpf.SharpDX
         void IRenderer.Render(RenderContext context)
         {            
             context.Camera = this.Camera;
-            foreach (IRenderable e in this.Items)
+            foreach (IRenderable e in this.Items.OfType<IRenderable>().Where(e=>e.IsAttached))
             {
                 e.Render(context);
             }
