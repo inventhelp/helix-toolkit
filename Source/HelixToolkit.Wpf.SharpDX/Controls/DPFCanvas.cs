@@ -537,7 +537,8 @@ namespace HelixToolkit.Wpf.SharpDX
         }
 
         /// <summary>
-        /// 
+        ///  	HelixToolkit.Wpf.SharpDX.dll!HelixToolkit.Wpf.SharpDX.DPFCanvas.OnRendering(object sender, System.EventArgs e) Line 602	C#
+
         /// </summary>
         private void StartRendering()
         {
@@ -612,7 +613,9 @@ namespace HelixToolkit.Wpf.SharpDX
 
             // Update all renderables before rendering 
             // giving them the chance to invalidate the current render.
-            this.renderRenderable.Update(this.renderTimer.Elapsed);
+            if (this.renderRenderable != null) {
+                this.renderRenderable.Update(this.renderTimer.Elapsed);
+            }
 
             if (this.pendingValidationCycles > 0)
             {
